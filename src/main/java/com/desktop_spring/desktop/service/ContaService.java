@@ -150,10 +150,11 @@ public class ContaService {
 
             conta.setSaldo(conta.getSaldo() - quantia);
 
-            Pix pix = new Pix();
-            pix.setValor(quantia);
-            pix.setDataPix(LocalDateTime.now());
-            pix.setChavePix(chavePix);
+            Pix pix = Pix.builder()
+                    .valor(quantia)
+                    .dataPix(LocalDateTime.now())
+                    .chavePix(chavePix)
+                    .build();
 
             pixRepository.save(pix);
 
